@@ -19,6 +19,33 @@ This is a comprehensive planner web app designed to cater to the financial plann
 - **Authentication**: JWT (JSON Web Tokens)
 
 ## Project Structure
+financial-planner/
+├── backend/
+│   ├── models/
+│   │   ├── Plan.js
+│   │   ├── Affirmation.js
+│   ├── routes/
+│   │   ├── plans.js
+│   │   ├── affirmations.js
+│   ├── server.js
+│   ├── config/
+│   │   ├── db.js
+│   ├── package.json
+├── frontend/
+│   ├── public/
+│   │   ├── index.html
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Home.js
+│   │   │   ├── Plans.js
+│   │   │   ├── Affirmations.js
+│   │   │   ├── UnifiedView.js
+│   │   │   ├── Navbar.js
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   ├── App.css
+│   ├── package.json
+├── README.md
 
 ### Frontend (React.js)
 - **App.js**: Main application component with routing.
@@ -34,6 +61,7 @@ This is a comprehensive planner web app designed to cater to the financial plann
 - **models/**
   - **Plan.js**: Plan model schema.
   - **Affirmation.js**: Affirmation model schema.
+  
 
 ### Database (PostgreSQL)
 - **Database Schema**
@@ -115,6 +143,3 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 
 ## License
 This project is licensed under the MIT License.
-```
-
-This README file provides an overview of the project, key features, tech stack, project structure, setup instructions, usage, contributing guidelines, and license information. Adjust the repository URL and any other details as necessary for your specific project.
