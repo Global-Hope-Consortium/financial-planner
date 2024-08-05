@@ -1,10 +1,8 @@
 const { Pool } = require('pg');
 require('dotenv').config();
-
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
-
 const createPlanTable = async () => {
   const queryText = `
     CREATE TABLE IF NOT EXISTS plans (
@@ -18,7 +16,6 @@ const createPlanTable = async () => {
   `;
   await pool.query(queryText);
 };
-
 module.exports = {
   createPlanTable,
 };
