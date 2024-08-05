@@ -1,11 +1,12 @@
-const express = require('express');//instance of the framework
+const express = require('express'); // instance of the framework
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { Pool } = require('pg');
 const planRoutes = require('./routes/plans');
 const affirmationRoutes = require('./routes/affirmations');
 require('dotenv').config();
-const app = express(); 
+
+const app = express();
 
 // Middleware
 app.use(cors());
@@ -13,11 +14,7 @@ app.use(bodyParser.json());
 
 // Database setup
 const pool = new Pool({
-  user: 'sthwalonyoni',
-  host: 'localhost',
-  database: 'planner',
-  password: 'LeeZee1823#',
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
 });
 
 pool.connect((err, client, release) => {
@@ -78,8 +75,6 @@ app.get('/api/affirmations', async (req, res) => {
     res.status(500).send(err.message);
   }
 });
-
-require('dotenv').config();
 
 // Start the server
 const PORT = process.env.PORT || 3000;

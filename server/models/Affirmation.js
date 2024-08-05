@@ -1,7 +1,12 @@
-const pool = require('../config/db');
+const { Pool } = require('pg');
+require('dotenv').config();
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
 const createAffirmationTable = async () => {
-  const query = `
+  const queryText = `
     CREATE TABLE IF NOT EXISTS affirmations (
       id SERIAL PRIMARY KEY,
       text TEXT NOT NULL,
@@ -9,9 +14,9 @@ const createAffirmationTable = async () => {
       user_id INTEGER REFERENCES users(id)
     );
   `;
-  await pool.query(query);
+  await pool.query(queryText);
 };
 
-createAffirmationTable();
-
-module.exports = pool;
+module.exports = {
+  createAffirmationTable,
+};
