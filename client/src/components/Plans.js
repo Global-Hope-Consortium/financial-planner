@@ -1,5 +1,7 @@
+// src/components/Plans.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import FinancialChart from './FinancialChart';
 
 const Plans = () => {
   const [plans, setPlans] = useState([]);
@@ -28,6 +30,12 @@ const Plans = () => {
       .catch(error => console.error(error));
   };
 
+  // Prepare data for the chart
+  const chartData = {
+    labels: plans.map(plan => plan.date),
+    values: plans.map(plan => plan.amount),
+  };
+
   return (
     <div>
       <h2>Plans</h2>
@@ -43,6 +51,7 @@ const Plans = () => {
           <li key={plan.id}>{plan.title} - {plan.amount}</li>
         ))}
       </ul>
+      <FinancialChart data={chartData} />
     </div>
   );
 };

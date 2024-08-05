@@ -19,19 +19,22 @@ This is a comprehensive planner web app designed to cater to the financial plann
 - **Authentication**: JWT (JSON Web Tokens)
 
 ## Project Structure
+
 financial-planner/
-├── backend/
+├── server/
 │   ├── models/
 │   │   ├── Plan.js
 │   │   ├── Affirmation.js
 │   ├── routes/
 │   │   ├── plans.js
 │   │   ├── affirmations.js
+│   ├── middleware/
+│   │   ├── auth.js
 │   ├── server.js
 │   ├── config/
 │   │   ├── db.js
 │   ├── package.json
-├── frontend/
+├── client/
 │   ├── public/
 │   │   ├── index.html
 │   ├── src/
@@ -41,6 +44,7 @@ financial-planner/
 │   │   │   ├── Affirmations.js
 │   │   │   ├── UnifiedView.js
 │   │   │   ├── Navbar.js
+│   │   │   ├── FinancialChart.js
 │   │   ├── App.js
 │   │   ├── index.js
 │   │   ├── App.css
@@ -64,30 +68,6 @@ financial-planner/
   
 
 ### Database (PostgreSQL)
-- **Database Schema**
-  ```sql
-  CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(100) NOT NULL
-  );
-
-  CREATE TABLE plans (
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(100) NOT NULL,
-    description TEXT,
-    amount NUMERIC NOT NULL,
-    date DATE NOT NULL,
-    user_id INTEGER REFERENCES users(id)
-  );
-
-  CREATE TABLE affirmations (
-    id SERIAL PRIMARY KEY,
-    text TEXT NOT NULL,
-    date DATE NOT NULL,
-    user_id INTEGER REFERENCES users(id)
-  );
-  ```
 
 ## Setup Instructions
 

@@ -1,8 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
-import Plans from './components/Plans';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Affirmations from './components/Affirmations';
+import Plans from './components/Plans';
 import UnifiedView from './components/UnifiedView';
 import Navbar from './components/Navbar';
 
@@ -10,12 +9,12 @@ const App = () => {
   return (
     <Router>
       <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/plans" component={Plans} />
-        <Route path="/affirmations" component={Affirmations} />
-        <Route path="/unified-view" component={UnifiedView} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/plans" element={<Plans />} />
+        <Route path="/affirmations" element={<Affirmations />} />
+        <Route path="/unified-view" element={<UnifiedView />} />
+      </Routes>
     </Router>
   );
 };
